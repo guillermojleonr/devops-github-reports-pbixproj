@@ -1,0 +1,29 @@
+{
+  "version": "0.10",
+  "created": "2022-03-01T18:09:54.2556434+00:00",
+  "deployments": {
+    "All Reports": {
+      "mode": "Report",
+      "source": {
+        "type": "Folder",
+        "path": "./{{WORKSPACE}}/*"
+      },
+      "authentication": {
+        "type": "ServicePrincipal",
+        "tenantId": "%AZURE_TENANT_ID%",
+        "clientId": "%AZURE_APP_CLIENT_ID%",
+        "clientSecret": "%PBI_CLIENT_SECRET%"
+      },
+      "options": {
+        "import": {
+          "nameConflict": "CreateOrOverwrite"
+        }
+      },
+      "environments": {
+        "Development": {
+          "workspace": "{{WORKSPACE}}"
+        }
+      }
+    }
+  }
+}
