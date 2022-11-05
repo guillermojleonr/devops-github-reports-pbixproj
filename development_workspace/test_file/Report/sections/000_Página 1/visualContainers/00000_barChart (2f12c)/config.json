@@ -1,0 +1,92 @@
+{
+  "name": "2f12c61ad8a1d92fcfd1",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 9.613733905579398,
+        "y": 0,
+        "z": 0,
+        "width": 641.37339055793984,
+        "height": 401.03004291845491
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "barChart",
+    "projections": {
+      "Y": [
+        {
+          "queryRef": "Sum(financials. Sales)"
+        }
+      ],
+      "Category": [
+        {
+          "queryRef": "financials.Country",
+          "active": true
+        }
+      ]
+    },
+    "prototypeQuery": {
+      "Version": 2,
+      "From": [
+        {
+          "Name": "f",
+          "Entity": "financials",
+          "Type": 0
+        }
+      ],
+      "Select": [
+        {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Source": "f"
+                  }
+                },
+                "Property": " Sales"
+              }
+            },
+            "Function": 0
+          },
+          "Name": "Sum(financials. Sales)"
+        },
+        {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Source": "f"
+              }
+            },
+            "Property": "Country"
+          },
+          "Name": "financials.Country"
+        }
+      ],
+      "OrderBy": [
+        {
+          "Direction": 2,
+          "Expression": {
+            "Aggregation": {
+              "Expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Source": "f"
+                    }
+                  },
+                  "Property": " Sales"
+                }
+              },
+              "Function": 0
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "hasDefaultSort": true
+  }
+}
