@@ -11,7 +11,7 @@
       "authentication": {
         "type": "ServicePrincipal",
         "tenantId": "savingl.cl",
-        "clientId": "%AZURE_APP_CLIENT_ID%",
+        "clientId": "a41b921c-51b9-44b9-9e34-2ab944fcc357",
         "clientSecret": "%PBI_CLIENT_SECRET%"
       },
       "options": {
