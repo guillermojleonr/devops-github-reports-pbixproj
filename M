@@ -1,0 +1,24 @@
+//How to insert thousands separator in a RUT column    
+
+// Gets Cliente Rut values in a list
+    ValuesClienteRut = Table.Column(#"Changed Type","Cliente Rut"),
+
+    // Add dots 
+    NewValuesClienteRut = 
+    
+        List.Transform(
+            ValuesClienteRut, 
+            each if Text.Length(_) = 10 then
+
+            Text.Insert(Text.Insert(_, 2, "."), 6, ".")
+            
+            else
+            Text.Insert(Text.Insert(_, 1, "."), 5, ".")
+        ),
+
+    #"AddIndex" = Table.AddIndexColumn(#"Changed Type","Index",0,1),
+
+    #"Resulting Table" = Table.AddColumn(#"AddIndex","NewColumn", each NewValuesClienteRut{[Index]})
+
+in
+    #"Resulting Table"
